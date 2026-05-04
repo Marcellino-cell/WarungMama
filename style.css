@@ -1,0 +1,530 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+  color:#222;
+  overflow-x:hidden;
+}
+
+/* LOADER */
+#loader{
+  position:fixed;
+  inset:0;
+  background:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.spinner{
+  width:60px;
+  height:60px;
+  border:6px solid #ddd;
+  border-top:6px solid #ff7a00;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
+/* TOPBAR */
+.topbar{
+  background:#1f2235;
+  color:white;
+  text-align:center;
+  padding:12px;
+  font-weight:600;
+}
+
+/* HEADER */
+.header{
+  background:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo h1{
+  color:#c26a00;
+  font-size:32px;
+}
+
+.logo span{
+  color:#666;
+  font-size:14px;
+}
+
+.menu-btn{
+  font-size:32px;
+  cursor:pointer;
+  user-select:none;
+}
+
+/* SIDEBAR */
+.sidebar{
+  position:fixed;
+  top:0;
+  left:-300px;
+  width:280px;
+  height:100%;
+  background:white;
+  z-index:2000;
+  transition:0.4s;
+  box-shadow:5px 0 20px rgba(0,0,0,0.2);
+}
+
+.sidebar.active{
+  left:0;
+}
+
+.close-btn{
+  background:#ff5c5c;
+  color:white;
+  padding:18px;
+  text-align:center;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.sidebar ul{
+  list-style:none;
+}
+
+.sidebar ul li{
+  border-bottom:1px solid #eee;
+}
+
+.sidebar ul li a{
+  display:block;
+  padding:22px;
+  text-decoration:none;
+  color:#222;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+  background:#ffefe0;
+  color:#ff7a00;
+}
+
+/* OVERLAY */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  opacity:0;
+  visibility:hidden;
+  transition:0.3s;
+  z-index:1500;
+}
+
+.overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.hero{
+  min-height:100vh;
+
+  background:
+  linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+  url('benner/Oranye\ Spanduk\ Promosi\ Warung\ Makan\ Lalapan\ Banner.png');
+
+  background-size:contain;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+  color:white;
+
+  padding:20px;
+}
+
+.hero-content h2{
+  font-size:60px;
+  margin-bottom:15px;
+}
+
+.hero-content p{
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+}
+
+.hero-buttons{
+  margin-top:30px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  text-decoration:none;
+  border-radius:10px;
+  margin:8px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.primary{
+  background:#ff7a00;
+  color:white;
+}
+
+.secondary{
+  border:2px solid white;
+  color:white;
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+}
+
+/* SECTION */
+section{
+  padding:80px 20px;
+}
+
+section h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-size:40px;
+}
+
+/* ABOUT */
+.about{
+  text-align:center;
+  background:white;
+}
+
+.about p{
+  max-width:800px;
+  margin:auto;
+  line-height:1.9;
+  color:#555;
+}
+
+/* MENU */
+.menu-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:20px;
+}
+
+.card-content h3{
+  margin-bottom:10px;
+}
+
+.card-content p{
+  color:#666;
+  margin-bottom:15px;
+}
+
+.card-content span{
+  color:#ff7a00;
+  font-weight:bold;
+  font-size:20px;
+}
+
+.card-content button{
+  width:100%;
+  margin-top:18px;
+  padding:14px;
+  border:none;
+  background:#ff7a00;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.card-content button:hover{
+  background:#d96400;
+}
+
+/* PROMO */
+.promo{
+  background:#1f2235;
+  color:white;
+  text-align:center;
+}
+
+.promo-box{
+  max-width:700px;
+  margin:auto;
+}
+
+/* TESTIMONI */
+.testi-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.testi-card{
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.testi-card p{
+  margin-bottom:20px;
+  color:#555;
+}
+
+/* CONTACT */
+.contact{
+  background:white;
+}
+
+form{
+  max-width:700px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+input,
+textarea{
+  padding:16px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  outline:none;
+}
+
+textarea{
+  height:140px;
+  resize:none;
+}
+
+form button{
+  padding:16px;
+  border:none;
+  background:#ff7a00;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+/* FOOTER */
+footer{
+  background:#1f2235;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+/* TOP BUTTON */
+#topBtn{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:50px;
+  height:50px;
+  border:none;
+  border-radius:50%;
+  background:#ff7a00;
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+  display:none;
+  z-index:1000;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+  .hero-content h2{
+    font-size:42px;
+  }
+
+  section h2{
+    font-size:30px;
+  }
+
+}
+
+.menu-title{
+  margin:50px 0 25px;
+}
+
+.menu-title h3{
+  text-align:center;
+  color:#ff7a00;
+  font-size:34px;
+}
+
+.minuman-title{
+  margin-top:80px;
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media (max-width: 768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  /* HEADER */
+  .header{
+    padding:15px;
+  }
+
+  .logo h1{
+    font-size:26px;
+  }
+
+  .logo span{
+    font-size:12px;
+  }
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    padding:30px 20px;
+    background-position:center;
+    background-size:cover;
+  }
+
+  .hero-content{
+    width:100%;
+  }
+
+  .hero-content h2{
+    font-size:42px;
+    line-height:1.2;
+    margin-bottom:15px;
+  }
+
+  .hero-content p{
+    font-size:15px;
+    line-height:1.7;
+  }
+
+  .hero-buttons{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+    margin-top:25px;
+  }
+
+  .btn{
+    width:220px;
+    text-align:center;
+  }
+
+  /* MENU */
+  .menu-section{
+    padding:60px 15px;
+  }
+
+  .menu-title h3{
+    font-size:26px;
+  }
+
+  .menu-container{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+
+  .card{
+    width:100%;
+  }
+
+  .card img{
+    height:220px;
+    object-fit:cover;
+  }
+
+  .card-content{
+    padding:18px;
+  }
+
+  .card-content h3{
+    font-size:22px;
+  }
+
+  .card-content p{
+    font-size:14px;
+  }
+
+  /* TESTIMONI */
+  .testi-container{
+    grid-template-columns:1fr;
+  }
+
+  /* FORM */
+  form{
+    width:100%;
+  }
+
+  input,
+  textarea{
+    font-size:15px;
+  }
+
+  /* FOOTER */
+  footer{
+    font-size:14px;
+    padding:20px;
+  }
+
+  /* TOP BUTTON */
+  #topBtn{
+    width:45px;
+    height:45px;
+    font-size:18px;
+    right:15px;
+    bottom:15px;
+  }
+
+}
